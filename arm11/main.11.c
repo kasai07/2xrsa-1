@@ -73,8 +73,8 @@ int __attribute__ ((section (".text.a11.entry"))) _main()
 	_memset(&file, 0, sizeof(file));
 	IFile_Open(&file, L"dmc:/arm9.bin", 1);
 	
-	const uint32_t block_size = 0x10000;
-	for(u32 i = 0; i < 0x20000u; i += block_size)
+	const uint32_t block_size = 0x1000;
+	for(u32 i = 0; i < 0x200000u; i += block_size)
 	{
 		IFile_Read(&file, &readBytes, (void*)buffer, block_size);
 		GSPGPU_FlushDataCache(buffer, block_size);
